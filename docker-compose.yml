@@ -1,0 +1,36 @@
+###############################################################################   
+# Licensed Materials - Property of IBM   #   
+# (C) Copyright IBM Corp. 2021. All Rights Reserved.   #  
+# US Government Users Restricted Rights - Use, duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.   #  
+###############################################################################
+
+version: '3'
+services:
+
+  #############################################################################################################
+  # The "pc" container is running the Workflow Process Service (authoring trial) image
+  #############################################################################################################
+  pc:
+    image: icr.io/icp4ba/workflow-ps-trial:21.0.2-IF001 
+    container_name: pc
+    hostname: pc
+    ports:
+      - "9443:9443"
+    stop_grace_period: 2m
+    environment:
+      - LICENSE=accept
+      ###########################################################################################################
+      # EXTERNAL_HOSTNAME must not be localhost if you want to access Workplace or BA Studio from a web browser
+      # which is not running on the docker host.
+      # In such case, replace EXTERNAL_HOSTNAME with the actual hostname of the docker host.
+      ###########################################################################################################
+      - EXTERNAL_HOSTNAME=localhost
+      - EXTERNAL_HTTPS_PORT=9443
+      # PFS properties
+      - PFS_ENABLE=false
+    deploy:
+      resources:
+        limits:
+          memory: 2048M
+        reservations:
+          memory: 2048M
