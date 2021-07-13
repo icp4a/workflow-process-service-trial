@@ -145,7 +145,9 @@ The structure looks like this:
 Workflow Process Service Authoring has predefined users and groups. You can update the users and groups if you have persistence enabled. The custom registry is under `<local workspace>`:
        `<local workspace>/config/custom-registry.xml`
 
-Usernames and groups are listed in this file. If you update this file and don't restart the container, the changes are applied to the server runtime in about one minute. 
+Usernames and groups are listed in this file. If you update this file and don't restart the container, the changes are applied to the server runtime in about one minute.
+
+Make sure to use all-lowercase names for groups. Groups available in the registry are not immediately replicated to the product database. In order to use newly created groups, you can restart the environment or sign in as a user who is member of that group.
 
 ## Enabling full text search and dashboard support
 

@@ -80,25 +80,6 @@ environment:
       - JVM_ARGS='-Xshareclasses:none'
 ```
 
-## Workflow Process Service Trial can't be started with 'INFO exited: postgresql (exit status 1; not expected)'
-
-If you see the following error when you restart Workflow Process Service Trial:
-```
-2021-06-16 07:21:43.088 UTC [5438] LOG:  starting PostgreSQL 12.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 8.3.1 20191121 (Red Hat 8.3.1-5), 64-bit
-2021-06-16 07:21:43.088 UTC [5438] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-2021-06-16 07:21:43.088 UTC [5438] LOG:  listening on IPv6 address "::", port 5432
-2021-06-16 07:21:43.092 UTC [5438] FATAL:  lock file "/var/run/postgresql/.s.PGSQL.5432.lock" already exists
-2021-06-16 07:21:43.092 UTC [5438] HINT:  Is another postmaster (PID 107) using socket file "/var/run/postgresql/.s.PGSQL.5432"?
-2021-06-16 07:21:43.092 UTC [5438] LOG:  database system is shut down
-2021-06-16 07:21:43,093 INFO exited: postgresql (exit status 1; not expected)
-```
-
-Run the following commands to resolve the issue. Don't interrupt them.
-```
-docker-compose start pc
-docker exec -it pc rm /var/run/postgresql/.s.PGSQL.5432.lock
-```
-
 ## Login failures during Docker Compose startup
 
 During Docker Compose startup, you might see some login failures in the Docker logs. These login failures are harmless and you can ignore them. They happen because the event manager keeps checking the login status and waits for the client registration before it starts. 
