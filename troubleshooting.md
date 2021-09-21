@@ -1,4 +1,4 @@
-# Troubleshooting
+` Troubleshooting
 
 ## How to enable tracing
 
@@ -31,7 +31,7 @@ Edit the `docker-compose.yml` file and choose another host port. For example, se
 
  After you make the update, use `docker-compose down` to stop and delete the environment and then use  `docker-compose up` to start the environment again.
 
-### Container exits with code 137 or OutOfMemoryError
+## Container exits with code 137 or OutOfMemoryError
 
 You might get an OutOfMemoryError (OOM error) during server startup, or you might get the following message when enabling Process Federation Server:
 
@@ -79,6 +79,19 @@ environment:
       - PFS_ENABLE=false
       - JVM_ARGS='-Xshareclasses:none'
 ```
+
+***Note***: This problem is fixed since 21.0.2 IF002.
+
+## Can't access Workplace or Business Automation Studio using Chrome on Mac
+
+If you can't access Workplace or Business Automation Studio from the Chrome browser on Mac, try another browser.
+
+
+You can also define a hostname and IP mapping entry in /etc/hosts, like the following:
+```
+ wps-internal-ums-host 127.0.0.1
+```
+And then use the hostname ops-internal-ums-host to access Workplace or Business Automation Studio.
 
 ## Login failures during Docker Compose startup
 
