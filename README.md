@@ -23,13 +23,9 @@ IBM Workflow Process Service Trial includes an authoring and runtime environment
 | Red Hat | [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos), then [Install Docker Compose](https://docs.docker.com/compose/install)|
 | SUSE Linux | [Install Docker Engine from binaries](https://docs.docker.com/engine/install/binaries/), then [Install Docker Compose](https://docs.docker.com/compose/install)|
 | Mac | [Install Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install), then change the default resource limitation (where memory is limited to 2 GB) for the Docker Desktop. Go to Docker -> Preferences -> Resources and ensure that you have at least 2 CPUs, 3.00 GB memory, and 1 GB swap. |
-| Windows | Install Docker Desktop on Windows. If you are using hyper-V, remember to increase the hyper-V memory to 3G. If you are using WSL, make sure you have enough free memory, at least 3G free memory.|
-
+| Windows | [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install). If you are using Hyper-V, remember to increase the Hyper-V memory to 3 GB. If you are using WSL, make sure you have at least 3 GB free memory.|
 
 Next, [obtain an IBM Cloud account](https://cloud.ibm.com/registration) if you don't have one and follow the [guide](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key) to create an API key to access the IBM Cloud Container Registry.
-
-| Mac | [Install Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install), then change the default resource limitation (where memory is limited to 2 GB) for the Docker Desktop. Go to Docker -> Preferences -> Resources and ensure that you have at least 2 CPUs, 3.00 GB memory, and 1 GB swap. To use Chrome on Mac, enter `chrome://flags/#allow-insecure-localhost` in the Chrome address bar, find the setting to allow invalid certificates for resources loaded from localhost, set it to Enabled, and restart Chrome. |
-| Windows | [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install) |
 
 Use the API key to log in to the IBM Cloud Container Registry by running the following Docker command:
 
@@ -48,7 +44,7 @@ For offline installation, see [offline.md](./offline.md).
 
 3. Optional: By default, the Workflow Process Service Trial environment uses localhost. If you want to access IBM Workplace or Business Automation Studio from a web browser that's not running on the Docker host, go to [Customizing the hostname](customizing.md#Customizing-the-hostname-and-port).
 
-4. Run `docker-compose up`. Don't interrupt this command when it's running.You can add the -d parameter to keep it running in the background. Always use this parameter on Mac.
+4. Run `docker-compose up`. Don't interrupt this command when it's running. You can add the -d parameter to keep it running in the background. Always use this parameter on Mac.
 
 Running in the background:
 
@@ -81,8 +77,6 @@ docker logs pc -f
 The default value for the container name is `pc`. If you change the container_name property in the `docker-compose.yml` file before you start the environment, replace pc with the actual container name you defined.
 
 
-**Note**: To use Chrome on Mac, see `Can't access Workplace or Business Automation Studio using Chrome on Mac` section in [troubleshooting](./troubleshooting.md) .
-
 ## Getting started 
 
 To get the URLs that you can access, as well as the admin user name and password, run:
@@ -99,7 +93,9 @@ Follow the links in the output of the command to access Workplace and Business A
 - Studio: https://localhost:9443/BAStudio
 - Process Admin Console: https://localhost:9443/ProcessAdmin
  
-*Note*: The embedded database provided by Workflow Process Service Trial doesn't support data encryption, so don't store any sensitive data.
+**Note**: To use Chrome on Mac, see `Can't access Workplace or Business Automation Studio using Chrome on Mac` in [troubleshooting](./troubleshooting.md).
+
+**Remember**: The embedded database provided by Workflow Process Service Trial doesn't support data encryption, so don't store any sensitive data.
 
 ### Predefined hiring sample process
 
