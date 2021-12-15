@@ -1,0 +1,18 @@
+- title: Installing
+  pages:
+    - path: /installing
+- title: Offline installation
+  pages:
+    - path: /offline
+- title: Customizing
+  pages:
+    - path: /customizing
+- title: Troubleshooting
+  pages:
+    - path: /troubleshooting
+- title: Migrating
+  pages:
+    - path: /migrating
+- title: Getting started
+  pages:
+    - path: /gettingStarted

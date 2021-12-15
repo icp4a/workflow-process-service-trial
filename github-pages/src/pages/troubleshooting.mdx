@@ -1,8 +1,10 @@
-` Troubleshooting
+---
+title: Troubleshooting Workflow Process Service Trial
+---
 
 ## How to enable tracing
 
-   To enable tracing, update the trace settings in <local workspace>/config/liberty-custom.xml after the server starts.  You don't need to restart the server. Changes will take effect after about one minute.
+To enable tracing, update the trace settings in `<local workspace>/config/liberty-custom.xml` after the server starts.  You don't need to restart the server. Changes will take effect after about one minute.
 
 ## Ports are not available
 
@@ -80,18 +82,19 @@ environment:
       - JVM_ARGS='-Xshareclasses:none'
 ```
 
-***Note***: This problem is fixed since 21.0.2 IF002.
+***Note***: This problem was fixed in 21.0.2 IF002.
 
 ## Can't access Workplace or Business Automation Studio using Chrome on Mac
 
-If you can't access Workplace or Business Automation Studio from the Chrome browser on Mac, try another browser.
+If you can't access Workplace or Business Automation Studio from the Chrome browser on Mac, try another browser. Alternatively, follow these steps:
 
-
-You can also define a hostname and IP mapping entry in /etc/hosts, like the following:
-```
- wps-internal-ums-host 127.0.0.1
-```
-And then use the hostname ops-internal-ums-host to access Workplace or Business Automation Studio.
+1. Click the lock icon to the left of the URL.
+2. In the box that pops up, click ***Certificate is not valid***.
+3. Another box pops up showing information about the certificate. Drag the large certificate icon to a Finder window. A `cer` file is created in the location you drag it to.
+4. Open the Keychain Access app on your Mac.
+5. Go to the ***Certificates*** tab and drag your `cer` file onto the Keychain Access app.
+6. Double-click your Workflow Process Service certificate and expand the ***Trust*** section. Under the ***When using this certificate*** section, set the value to ***Always Trust***.
+Close the dialog box and use your Mac password to save your settings.
 
 ## Login failures during Docker Compose startup
 
