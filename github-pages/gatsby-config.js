@@ -1,5 +1,5 @@
 module.exports = {
-    pathPrefix: "/dba/workflow-process-service-trial",
+    pathPrefix: "/workflow-process-service-trial",
     siteMetadata: {
       title: "Installing Workflow Process Service trial",
       description: "",
@@ -10,7 +10,7 @@ module.exports = {
         resolve: "gatsby-plugin-manifest",
         options: {
           repository: {
-            baseURL: 'https://github.ibm.com/dba/workflow-process-service-trial',
+            baseURL: 'https://github.ibm.com/workflow-process-service-trial',
             subDirectory: '/',
           },
           name: "Carbon Design Gatsby Theme",
