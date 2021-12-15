@@ -1,4 +1,6 @@
-# Installing IBM Workflow Process Service Trial
+---
+title: Installing IBM Workflow Process Service Trial
+---
 
 IBM Workflow Process Service Trial includes an authoring and runtime environment for a single workflow process.
 
@@ -23,7 +25,8 @@ IBM Workflow Process Service Trial includes an authoring and runtime environment
 | Red Hat | [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos), then [Install Docker Compose](https://docs.docker.com/compose/install)|
 | SUSE Linux | [Install Docker Engine from binaries](https://docs.docker.com/engine/install/binaries/), then [Install Docker Compose](https://docs.docker.com/compose/install)|
 | Mac | [Install Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install), then change the default resource limitation (where memory is limited to 2 GB) for the Docker Desktop. Go to Docker -> Preferences -> Resources and ensure that you have at least 2 CPUs, 3.00 GB memory, and 1 GB swap. |
-| Windows | [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install). If you are using Hyper-V, remember to increase the Hyper-V memory to 3 GB. If you are using WSL, make sure you have at least 3 GB free memory.|
+| Windows | [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install). If you are using Hyper-V, increase the Hyper-V memory to 3 GB. If you are using WSL, make sure you have at least 3 GB free memory.|
+
 
 Next, [obtain an IBM Cloud account](https://cloud.ibm.com/registration) if you don't have one and follow the [guide](https://cloud.ibm.com/docs/account?topic=account-userapikey#create_user_key) to create an API key to access the IBM Cloud Container Registry.
 
@@ -34,15 +37,15 @@ docker login -u iamapikey -p <apikey> icr.io
 ```
 Replace `<apikey>` with your API key.
 
-For offline installation, see [offline.md](./offline.md).
+To install offline, see [Offline Installation](/offline). If you created process applications in an earlier version, see [Migrating to a new version](/migrating).
 
 ## Starting the Workflow Process Service Trial environment
 
 1. Create a folder on your local computer, such as `sample/folder`, where you will run Docker Compose.
 
-2. In the new folder, create a new file named `docker-compose.yml`. Copy the contents of the [docker-compose.yml](./docker-compose.yml) file into the new file on your local computer and save it.
+2. In the new folder, create a new file named `docker-compose.yml`. Copy the contents of the [docker-compose.yml](https://github.com/icp4a/workflow-process-service-trial/blob/main/docker-compose.yml) file into the new file on your local computer and save it.
 
-3. Optional: By default, the Workflow Process Service Trial environment uses localhost. If you want to access IBM Workplace or Business Automation Studio from a web browser that's not running on the Docker host, go to [Customizing the hostname](customizing.md#Customizing-the-hostname-and-port).
+3. Optional: By default, the Workflow Process Service Trial environment uses localhost. If you want to access IBM Workplace or Business Automation Studio from a web browser that's not running on the Docker host, go to [Customizing the hostname](customizing#customizing-the-hostname-and-port).
 
 4. Run `docker-compose up`. Don't interrupt this command when it's running. You can add the -d parameter to keep it running in the background. Always use this parameter on Mac.
 
@@ -92,8 +95,8 @@ Follow the links in the output of the command to access Workplace and Business A
 - Workplace: https://localhost:9443/Workplace
 - Studio: https://localhost:9443/BAStudio
 - Process Admin Console: https://localhost:9443/ProcessAdmin
- 
-**Note**: To use Chrome on Mac, see `Can't access Workplace or Business Automation Studio using Chrome on Mac` in [troubleshooting](./troubleshooting.md).
+
+**Note**: To use Chrome on Mac, see `Can't access Workplace or Business Automation Studio using Chrome on Mac` in [troubleshooting](/troubleshooting#cant-access-workplace-or-business-automation-studio-using-chrome-on-mac).
 
 **Remember**: The embedded database provided by Workflow Process Service Trial doesn't support data encryption, so don't store any sensitive data.
 
@@ -114,7 +117,7 @@ The server is configured by default with the following predefined users and grou
 			        manager3
 ```
 
-The passwords for these users are randomly generated, they are the same with admin password. 
+The passwords for these users are randomly generated, the same as the admin password. 
 
 ## Stopping and restarting the environment
 
@@ -137,7 +140,7 @@ docker-compose restart
 ```
 
 ## Customizing
-To customize the Workflow Process Server Trial, including persisting data and adding full text search, see [Customizing](./customizing.md). 
+To customize the Workflow Process Server Trial, including persisting data and adding full text search, see [Customizing](/customizing). 
 
 ## Troubleshooting
-For any issues, see [Troubleshooting](./troubleshooting.md).
+For any issues, see [Troubleshooting](/troubleshooting).

@@ -1,0 +1,33 @@
+language: node_js
+before_script:
+  - npm install -g gatsby-cli
+node_js:
+  - "14"
+script:
+  - export PATH_PREFIX=$TRAVIS_REPO_SLUG
+  - npm run build
+# safelist
+branches:
+  only:
+  - master
+repo:
+  dba/workflow-process-service-trial
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    github_url: github.ibm.com
+    github_token: $GITHUB_TOKEN
+    local_dir: public
+    on:
+      branch: master
+      condition: '"$TRAVIS_REPO_SLUG" = "dba/workflow-process-service-trial"' 
+
+  - provider: pages
+    skip_cleanup: true
+    github_url: github.ibm.com
+    github_token: $GITHUB_TOKEN
+    local_dir: public
+    on:
+      all_branches: true
+      condition: '"$TRAVIS_REPO_SLUG" != "dba/workflow-process-service-trial"'

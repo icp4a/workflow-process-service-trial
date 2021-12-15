@@ -1,4 +1,6 @@
-# Customizing Workflow Process Service
+---
+title: Customizing Workflow Process Service Trial
+---
 
 ## Customizing the hostname and port
 
@@ -75,7 +77,7 @@ If you have an existing environment and you updated the `ADMIN_PASSWORD` variabl
 
 ## Persisting the data
 
-If you want to save the data and the process when you delete the container instance, and reuse it when you run another container instance, you can persist the data. Copy the contents of the [docker-compose.yml](./persistence/basic/docker-compose.yml) file with persistence to your local computer.
+If you want to save the data and the process when you delete the container instance, and reuse it when you run another container instance, you can persist the data. Copy the contents of the [docker-compose.yml](https://github.com/icp4a/workflow-process-service-trial/blob/main/persistence/basic/docker-compose.yml) file with persistence to your local computer.
 
 #### For Linux only
 
@@ -157,7 +159,7 @@ Find the `docker-compose.yml` file here:
 
   |    | No persistence | Persistence enabled |
 |---|---|---|
-| **PFS enabled** | [PFS/docker-compose.yml](PFS/docker-compose.yml) | [persistence/PFS/docker-compose.yml](persistence/PFS/docker-compose.yml)
+| **PFS enabled** | [PFS/docker-compose.yml](https://github.com/icp4a/workflow-process-service-trial/blob/main/PFS/docker-compose.yml) | [persistence/PFS/docker-compose.yml](https://github.com/icp4a/workflow-process-service-trial/blob/main/persistence/PFS/docker-compose.yml)
 
 Copy the contents of the `docker-compose.yml` file under the `PFS/` folder or `persistence/PFS` folder into a new file named `docker-compose.yml` in the folder that you created.
 
@@ -178,7 +180,7 @@ If you already have an existing environment and you want to enable full text sea
 
 When Process Federation Server is enabled and persistence is also enabled, the Elasticsearch data will be persisted in a volume named `elasticsearch_data`.
 
- _Note: Running Elasticsearch in addition to the Workflow Process Service container might cause resource issues. See [Container exits with code 137](./troubleshooting.md#Container-exits-with-code-137)._
+ _Note: Running Elasticsearch in addition to the Workflow Process Service container might cause resource issues. See [Container exits with code 137](troubleshooting#container-exits-with-code-137-or-outofmemoryerror)._
 
 
 ## Cleaning up the environment
