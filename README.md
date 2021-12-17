@@ -93,7 +93,7 @@ Follow the links in the output of the command to access Workplace and Business A
 - Studio: https://localhost:9443/BAStudio
 - Process Admin Console: https://localhost:9443/ProcessAdmin
  
-**Note**: To use Chrome on Mac, see `Can't access Workplace or Business Automation Studio using Chrome on Mac` in [troubleshooting](./troubleshooting.md).
+**Note**: To use Chrome on Mac, see `Can't access Workplace or Business Automation Studio using Chrome on Mac` in [troubleshooting](./troubleshooting.md#cant-access-workplace-or-business-automation-studio-using-chrome-on-mac).
 
 **Remember**: The embedded database provided by Workflow Process Service Trial doesn't support data encryption, so don't store any sensitive data.
 

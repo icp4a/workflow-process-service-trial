@@ -1,4 +1,5 @@
-` Troubleshooting
+# Troubleshooting IBM Workflow Process Service Trial
+
 
 ## How to enable tracing
 
@@ -80,7 +81,7 @@ environment:
       - JVM_ARGS='-Xshareclasses:none'
 ```
 
-***Note***: This problem is fixed since 21.0.2 IF002.
+***Note***: This problem was fixed in 21.0.2 IF002.
 
 ## Can't access Workplace or Business Automation Studio using Chrome on Mac
 
@@ -89,9 +90,9 @@ If you can't access Workplace or Business Automation Studio from the Chrome brow
 
 You can also define a hostname and IP mapping entry in /etc/hosts, like the following:
 ```
- wps-internal-ums-host 127.0.0.1
+ <your_IP_address> wps-internal-ums-host
 ```
-And then use the hostname ops-internal-ums-host to access Workplace or Business Automation Studio.
+And then use the hostname wps-internal-ums-host to access Workplace or Business Automation Studio.
 
 ## Login failures during Docker Compose startup
 
