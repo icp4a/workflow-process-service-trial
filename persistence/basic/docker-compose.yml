@@ -11,7 +11,7 @@ services:
   # The "pc" container is running the Workflow Process Service (authoring trial) image
   #############################################################################################################
   pc:
-    image: icr.io/icp4ba/workflow-ps-trial:21.0.3-latest-amd64 
+    image: icr.io/icp4ba/workflow-ps-trial:21.0.3-amd64 
     container_name: pc
     hostname: pc
     ports:
