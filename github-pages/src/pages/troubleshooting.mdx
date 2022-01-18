@@ -96,6 +96,20 @@ If you can't access Workplace or Business Automation Studio from the Chrome brow
 6. Double-click your Workflow Process Service certificate and expand the ***Trust*** section. Under the ***When using this certificate*** section, set the value to ***Always Trust***.
 Close the dialog box and use your Mac password to save your settings.
 
+## Out of memory error using Docker Desktop
+
+If you are using Docker Desktop version 4.3.0 or later, you might get an out of memory error when you start the server. This error occurs because Docker Desktop uses `cgroupv2`, and JVM providers haven't caught up with this change yet and can no longer calculate heap size based on the memory limit that is configured for the container. For more information about Open J9 JVM container awareness, see [UseContainerSupport](https://www.eclipse.org/openj9/docs/xxusecontainersupport/).
+
+***Note***: This issue is not limited to Docker Desktop. It also occurs if you install Docker on Linux and enable `cgroupv2` on the Linux host.
+
+As a workaround, add the following variable under the environment section in the `docker-compose.yml` file:
+
+```
+IBM_JAVA_OPTIONS="-Xmx1563M"
+```
+
+Because the maximum heap size is typically 75% of the memory limit for the container, the 1563M number is calculated based on the default 2G memory limit. You can change it to reflect your settings in ` .services.*.deploy.resources.limits.memory`
+
 ## Login failures during Docker Compose startup
 
 During Docker Compose startup, you might see some login failures in the Docker logs. These login failures are harmless and you can ignore them. They happen because the event manager keeps checking the login status and waits for the client registration before it starts. 
