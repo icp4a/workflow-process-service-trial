@@ -1,3 +1,4 @@
-# workflow-process-service-trial
+# Installation instructions
 
-Please go to github pages for Trial doc here: https://icp4a.github.io/workflow-process-service-trial/
+For instructions to install and run the Trial, see 
+https://icp4a.github.io/workflow-process-service-trial/
