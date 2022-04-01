@@ -73,7 +73,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: "./"
+      device: "$PWD/"
   postgres_data:
   elasticsearch_data:
 
