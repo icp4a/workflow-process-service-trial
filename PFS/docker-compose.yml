@@ -11,11 +11,11 @@ services:
   # The "pc" container is running the Workflow Process Service (authoring trial) image
   #############################################################################################################
   pc:
-    image: icr.io/icp4ba/workflow-ps-trial:22.0.2-amd64 
+    image: icr.io/icp4ba/workflow-ps-trial:23.0.1-amd64 
     container_name: pc
     hostname: pc
     depends_on:
-      - elasticsearch
+      - opensearch
     ports:
       - "9443:9443"
     stop_grace_period: 2m
@@ -30,7 +30,7 @@ services:
       - EXTERNAL_HTTPS_PORT=9443
       # PFS properties
       - PFS_ENABLE=true
-      - PFS_REMOTEELASTICSEARCH_ENDPOINTS=http://elasticsearch:9200
+      - PFS_REMOTEELASTICSEARCH_ENDPOINTS=http://opensearch:9200
       # The hostname used by PFS to access Workflow Process Service (authoring trial):
       - INTERNAL_HOSTNAME=localhost
     deploy:
@@ -40,19 +40,21 @@ services:
         reservations:
           memory: 2048M
 
-  # The "elasticsearch" container required by PFS
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
-    container_name: elasticsearch
-    hostname: elasticsearch
+  # The "opensearch" container is required by PFS to provide the federated data repository
+  opensearch:
+    image: opensearchproject/opensearch:2.7.0
+    container_name: opensearch
+    hostname: opensearch
     #############################################################################################################
-    # Elasticsearch OSS image does not provide SSL support, therefore the 9200 port is not exposed externally
-    # If despite the security risk you want to expose the unsecured Elasticsearch API you can comment out the
+    # This container is for demo only and does not provide SSL support or authentication, therefore the 9200 port
+    # is not exposed externally.
+    # If despite the security risk you want to expose the unsecured Opensearch API you can comment out the
     # following 2 lines
     #############################################################################################################
     # ports:
     #   - "9200:9200"
     environment:
+      - plugins.security.disabled=true
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - discovery.type=single-node
