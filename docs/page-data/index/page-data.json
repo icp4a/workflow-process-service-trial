@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-pages-index-mdx",
-    "path": "/",
-    "result": {"pageContext":{"frontmatter":{"description":"","title":""},"relativePagePath":"/index.mdx","titleType":"page","MdxNode":{"id":"03915534-0c72-5491-b1c3-a6441c7149c4","children":[],"parent":"fa396df2-9fc0-5a58-987f-8bc6be4d9c79","internal":{"content":"import HomepageTemplate from 'gatsby-theme-carbon/src/templates/Homepage';\nexport default HomepageTemplate;","type":"Mdx","contentDigest":"b765389cb3d5ceb3bca3d9829d3402b3","owner":"gatsby-plugin-mdx","counter":69},"frontmatter":{"description":"","title":""},"exports":{},"rawBody":"import HomepageTemplate from 'gatsby-theme-carbon/src/templates/Homepage';\nexport default HomepageTemplate;","fileAbsolutePath":"/Users/aliceip/Documents/GitHub/workflow-process-service-trial/github-pages/src/pages/index.mdx"}}},
-    "staticQueryHashes": ["1364590287","137577622","2102389209","2456312558","2746626797","3018647132","3037994772","768070550"]}
